@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lesson9
 {
@@ -11,18 +7,18 @@ namespace Lesson9
         public override int Weight { get; set; }
 
 
-        protected Dog() : base(1)
+        public Dog() : base(1)
         {
         }
 
         public override void Move()
         {
-            // move like Jager
+            Console.WriteLine("Собаки перемещаются на 4-х ногах.");
         }
         public override bool Beat(Entity entity)
         {
             base.Beat(entity);
-            Console.WriteLine("Сабаки кусаются");
+            Console.WriteLine("Собаки кусаются");
             return true;
         }
     }

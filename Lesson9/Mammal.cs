@@ -1,18 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lesson9
 {
     public abstract class Mammal : Entity
     {
         public virtual int LungsSize { get; set; }
-
-        //protected Mammal() : this(1)
-        //{
-        //}
 
         protected Mammal(int age) : base(age)
         {
@@ -21,7 +13,7 @@ namespace Lesson9
         protected override void Breathe()
         {
             base.Breathe();
-            // using lungs
+            Console.WriteLine("Млекопитающие используют легкие.");
         }
         public virtual bool Beat(Entity entity)
         {
