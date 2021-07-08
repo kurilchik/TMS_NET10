@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace Lesson11
 {
-    public class Three
+    public class Tree
     {
         public Queue<Node> NodesQueue { get; set; }
 
-        public Three()
+        public Tree()
         {
             NodesQueue = new Queue<Node>();
         }

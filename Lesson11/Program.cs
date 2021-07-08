@@ -6,10 +6,10 @@ namespace Lesson11
     {
         static void Main(string[] args)
         {
-            Three three = new Three();
+            Tree tree = new Tree();
 
             Node node = new Node(Guid.NewGuid());
-            three.CreateTree(node);            
+            tree.CreateTree(node);            
         }
     }
 }
