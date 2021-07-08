@@ -6,11 +6,16 @@ namespace Lesson11
     {
         static void Main(string[] args)
         {
-            Random random = new Random();
             Three three = new Three();
 
-            Node node = three.CreateNode(random.Next());
+            Node rootNode = three.CreateNode(Guid.NewGuid());
+            three.AddNodes(rootNode);            
 
+            while (three.NodesQueue.Count > 0)
+            {
+                Node tempNode = three.NodesQueue.Dequeue();
+                three.AddNodes(tempNode);
+            }
         }
     }
 }

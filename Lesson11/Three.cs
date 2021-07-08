@@ -1,37 +1,56 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lesson11
 {
     public class Three
     {
-        public Node CreateNode(int id)
+        public Queue<Node> NodesQueue { get; set; }
+
+        public Three()
+        {
+            NodesQueue = new Queue<Node>();
+        }
+
+        public Node CreateNode(Guid id)
         {
             return new Node(id);
         }
 
-        public void SetNodes(Node node, int range)
+        public void AddNodes(Node node)
         {
-            Random random = new Random();
+            SetNodes(node);
+            PrintNode(node);
+            QueueNode(node);
+        }
 
-            for (int i = 0; i < range; i++)
+        private void SetNodes(Node node)
+        {
+            Console.WriteLine($"Enter the required number of nodes for {node.Id}:");
+            int amountNodes = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < amountNodes; i++)
             {
-                var newNode = CreateNode(random.Next());
+                var newNode = CreateNode(Guid.NewGuid());
                 node.Nodes.Add(newNode);
             }
         }
 
-        public void SetLevel(Node node, int level)
+        private void PrintNode(Node node)
         {
-            Random random = new Random();
-
-            for (int i = 0; i < level; i++)
+            Console.WriteLine($"{node.Id}:");
+            foreach (var item in node.Nodes)
             {
-                var newNode = CreateNode(random.Next());
-                node.Nodes.Add(newNode);
+                Console.WriteLine($"- {item.Id}");
+            }
+            Console.WriteLine(string.Empty);
+        }
+
+        private void QueueNode(Node node)
+        {
+            foreach (var item in node.Nodes)
+            {
+                NodesQueue.Enqueue(item);
             }
         }
     }
