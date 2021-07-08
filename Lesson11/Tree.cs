@@ -5,20 +5,15 @@ namespace Lesson11
 {
     public class Tree
     {
-        public Queue<Node> NodesQueue { get; set; }
-
-        public Tree()
-        {
-            NodesQueue = new Queue<Node>();
-        }
+        private Queue<Node> _nodesQueue = new Queue<Node>();
 
         public void CreateTree(Node node)
         {
-            NodesQueue.Enqueue(node);
+            _nodesQueue.Enqueue(node);
 
-            while (NodesQueue.Count > 0)
+            while (_nodesQueue.Count > 0)
             {
-                Node tempNode = NodesQueue.Dequeue();
+                Node tempNode = _nodesQueue.Dequeue();
 
                 SetNodes(tempNode);
                 PrintNode(tempNode);
@@ -52,7 +47,7 @@ namespace Lesson11
         {
             foreach (var item in node.Nodes)
             {
-                NodesQueue.Enqueue(item);
+                _nodesQueue.Enqueue(item);
             }
         }
     }
