@@ -12,16 +12,18 @@ namespace Lesson11
             NodesQueue = new Queue<Node>();
         }
 
-        public Node CreateNode(Guid id)
+        public void CreateTree(Node node)
         {
-            return new Node(id);
-        }
+            NodesQueue.Enqueue(node);
 
-        public void AddNodes(Node node)
-        {
-            SetNodes(node);
-            PrintNode(node);
-            QueueNode(node);
+            while (NodesQueue.Count > 0)
+            {
+                Node tempNode = NodesQueue.Dequeue();
+
+                SetNodes(tempNode);
+                PrintNode(tempNode);
+                QueueNode(tempNode);
+            }
         }
 
         private void SetNodes(Node node)
@@ -31,7 +33,7 @@ namespace Lesson11
 
             for (int i = 0; i < amountNodes; i++)
             {
-                var newNode = CreateNode(Guid.NewGuid());
+                Node newNode = new Node(Guid.NewGuid());
                 node.Nodes.Add(newNode);
             }
         }
