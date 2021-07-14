@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DriverLicense.PresentationLayer", "DriverLicense.PresentationLayer\DriverLicense.PresentationLayer.csproj", "{747CA233-7A4B-4581-8B76-DE37B1E9DD49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DriverLicense.BusinessLogicLayer", "DriverLicense.BusinessLogicLayer\DriverLicense.BusinessLogicLayer.csproj", "{29A78F42-3510-43C0-A4FC-85A164C8B145}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{747CA233-7A4B-4581-8B76-DE37B1E9DD49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{747CA233-7A4B-4581-8B76-DE37B1E9DD49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{747CA233-7A4B-4581-8B76-DE37B1E9DD49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{747CA233-7A4B-4581-8B76-DE37B1E9DD49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29A78F42-3510-43C0-A4FC-85A164C8B145}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29A78F42-3510-43C0-A4FC-85A164C8B145}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29A78F42-3510-43C0-A4FC-85A164C8B145}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29A78F42-3510-43C0-A4FC-85A164C8B145}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FFDBBE8A-D9AC-4FC6-8301-8C4A80F76901}
+	EndGlobalSection
+EndGlobal
