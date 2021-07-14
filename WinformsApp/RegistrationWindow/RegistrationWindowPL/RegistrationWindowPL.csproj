@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="icon\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RegistrationWindowBLL\RegistrationWindowBLL.csproj" />
+    <ProjectReference Include="..\RegistrationWindowDAL\RegistrationWindowDAL.csproj" />
+  </ItemGroup>
+
+</Project>
