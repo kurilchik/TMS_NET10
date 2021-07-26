@@ -15,9 +15,9 @@ namespace HW.Interface
             BabyGender = babyGender;
         }
 
-        public Person Reproduction(Person man, Person woman)
+        public Gender Reproduction(int manBabyGender, int womanBabyGender)
         {
-            return man.BabyGender > woman.BabyGender ? new Person(man.Sex, woman.BabyGender) : new Person(woman.Sex, man.BabyGender);
+            return manBabyGender >= womanBabyGender ? Gender.Man : Gender.Woman;
         }
     }
 }

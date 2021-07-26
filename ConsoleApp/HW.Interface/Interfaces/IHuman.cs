@@ -8,6 +8,6 @@ namespace HW.Interface.Interfaces
 
         public int BabyGender { get; }
 
-        public Person Reproduction(Person man, Person woman);
+        public Gender Reproduction(int manBabyGender, int womanBabyGender);
     }
 }
