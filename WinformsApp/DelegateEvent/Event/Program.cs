@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HW14._1
+namespace Event
 {
     class Program
     {

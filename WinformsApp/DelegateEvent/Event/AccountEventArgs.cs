@@ -1,4 +1,4 @@
-﻿namespace HW14._1
+﻿namespace Event
 {
     public class AccountEventArgs
     {
