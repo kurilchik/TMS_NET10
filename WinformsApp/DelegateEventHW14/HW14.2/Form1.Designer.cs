@@ -46,6 +46,7 @@ namespace HW14._2
             this.button1.Text = "Click";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.MyMethod);
+            
             // 
             // button2
             // 

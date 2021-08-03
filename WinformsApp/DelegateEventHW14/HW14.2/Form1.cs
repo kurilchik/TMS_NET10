@@ -15,6 +15,7 @@ namespace HW14._2
         public Form1()
         {
             InitializeComponent();
+            this.button1.Click += MyMethod;
         }
 
         private void MyMethod(object sender, EventArgs e)
