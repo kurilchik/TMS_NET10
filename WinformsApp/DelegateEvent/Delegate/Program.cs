@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HW14._0
+namespace Delegate
 {
     class Program
     {
