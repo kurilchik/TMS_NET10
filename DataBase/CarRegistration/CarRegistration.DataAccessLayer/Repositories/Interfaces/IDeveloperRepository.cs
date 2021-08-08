@@ -1,14 +1,17 @@
-﻿using CarRegistration.DataAccessLayer.DataModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace CarRegistration.DataAccessLayer.Repositories.Interfaces
 {
-    public interface IDeveloperRepository
+    public interface IDeveloperRepository<T>
     {
-        void Add(Develorer developer);
+        void Add(T developer);
+
+        public T GetByID(int id);
+
+        public List<T> GetList();
+
+        public void Update(T developer);
+
+        public void Delete(int id);
     }
 }

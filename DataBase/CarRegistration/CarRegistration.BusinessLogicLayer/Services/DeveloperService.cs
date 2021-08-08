@@ -2,17 +2,13 @@
 using CarRegistration.DataAccessLayer.DataModels;
 using CarRegistration.DataAccessLayer.Repositories;
 using CarRegistration.DataAccessLayer.Repositories.Interfaces;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CarRegistration.BusinessLogicLayer.Services
 {
     public class DeveloperService : IDeveloperService
     {
-        private IDeveloperRepository _developerRepository;
+        private IDeveloperRepository<Develorer> _developerRepository;
         private CarDbContext _carDbContext;
 
         public DeveloperService()
@@ -29,6 +25,32 @@ namespace CarRegistration.BusinessLogicLayer.Services
             };
 
             _developerRepository.Add(developer);
+            _carDbContext.SaveChanges();
+        }
+
+        public Develorer GetByID(int id)
+        {
+            return _developerRepository.GetByID(id);
+        }
+
+        public List<Develorer> GetList()
+        {
+            return _developerRepository.GetList();
+        }
+
+        public void Update(int id, string newName, int newAge)
+        {
+            Develorer developer = GetByID(id);
+            developer.Name = newName;
+            developer.Age = newAge;
+
+            _carDbContext.Develorers.Update(developer);
+            _carDbContext.SaveChanges();
+        }
+
+        public void Delete(int id)
+        {
+            _developerRepository.Delete(id);
             _carDbContext.SaveChanges();
         }
     }
