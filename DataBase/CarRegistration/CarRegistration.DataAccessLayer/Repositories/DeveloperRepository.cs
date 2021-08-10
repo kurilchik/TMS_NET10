@@ -39,5 +39,17 @@ namespace CarRegistration.DataAccessLayer.Repositories
             var developer = _carDbContext.Develorers.SingleOrDefault(x => x.Id == id);
             _carDbContext.Develorers.Remove(developer);
         }
+
+        public List<Develorer> GetSortedList(string name)
+        {
+            var dev1 = _carDbContext.Develorers.Where(x => x.Name == name);
+
+            var devC = from developer in _carDbContext.Develorers
+                       join carDeveloper in _carDbContext.CarDevelorers on developer.Id equals carDeveloper.DevelorerId
+                       where developer.Name == name
+                       select developer;
+
+            return null;
+        }
     }
 }
