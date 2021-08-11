@@ -1,6 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
 
 #nullable disable
 
@@ -31,6 +29,7 @@ namespace CarRegistration.DataAccessLayer.DataModels
             {
                 optionsBuilder.UseSqlServer("Server=(LocalDb)\\MSSQLLocalDB;Database=Car;Trusted_Connection=True;");
             }
+            optionsBuilder.LogTo(System.Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name });
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

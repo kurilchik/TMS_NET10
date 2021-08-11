@@ -40,14 +40,55 @@ namespace CarRegistration.DataAccessLayer.Repositories
             _carDbContext.Develorers.Remove(developer);
         }
 
-        public List<Develorer> GetSortedList(string name)
+        private List<Develorer> GetSortedList(string name)
         {
-            var dev1 = _carDbContext.Develorers.Where(x => x.Name == name);
+            var dev = _carDbContext.Develorers.Where(x => x.Name == name);
 
-            var devC = from developer in _carDbContext.Develorers
-                       join carDeveloper in _carDbContext.CarDevelorers on developer.Id equals carDeveloper.DevelorerId
+            var dev1 = from developer in _carDbContext.Develorers
                        where developer.Name == name
                        select developer;
+
+            var dev2 = _carDbContext.Develorers.Join(
+                _carDbContext.CarDevelorers,
+                d => d.Id,
+                cd => cd.DevelorerId,
+                (d, cd) => new
+                {
+                    DeveloperName = d.Name,
+                    CarId = cd.CarId
+                }).Join(
+                _carDbContext.Cars,
+                cd => cd.CarId,
+                c => c.Id,
+                (cd, c) => new
+                {
+                    DeveloperName = cd.DeveloperName,
+                    IsAccident = c.Accident,
+                    EngineTypeId = c.EngineTypeId
+                }).Join(
+                _carDbContext.EngineTypes,
+                c => c.EngineTypeId,
+                et => et.Id,
+                (c, et) => new
+                {
+                    DeveloperName = c.DeveloperName,
+                    EngineType = et.Name,
+                    IsAccident = c.IsAccident
+                }).Where(d => d.DeveloperName == name);
+
+        var dev3 = (from developer in _carDbContext.Develorers
+                        join carDeveloper in _carDbContext.CarDevelorers on developer.Id equals carDeveloper.DevelorerId
+                        join car in _carDbContext.Cars on carDeveloper.CarId equals car.Id
+                        join engineType in _carDbContext.EngineTypes on car.EngineTypeId equals engineType.Id
+                        where developer.Name == name
+                        select new
+                        {
+                            DeveloperName = developer.Name,
+                            EngineType = engineType.Name,
+                            IsAccident = car.Accident
+                        }).ToList();
+
+            var dev4 = dev3.Where(d => d.DeveloperName == name);
 
             return null;
         }
