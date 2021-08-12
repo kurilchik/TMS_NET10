@@ -6,12 +6,14 @@ namespace CarRegistration.DataAccessLayer.Repositories.Interfaces
     {
         void Add(T developer);
 
-        public T GetByID(int id);
+        T GetByID(int id);
 
-        public List<T> GetList();
+        List<T> GetList();
 
-        public void Update(T developer);
+        void Update(T developer);
 
-        public void Delete(int id);
+        void Delete(int id);
+
+        List<T> GetLazyDevelopers();
     }
 }

@@ -27,7 +27,9 @@ namespace CarRegistration.DataAccessLayer.DataModels
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=(LocalDb)\\MSSQLLocalDB;Database=Car;Trusted_Connection=True;");
+                optionsBuilder
+                .UseLazyLoadingProxies()
+                .UseSqlServer("Server=(LocalDb)\\MSSQLLocalDB;Database=Car;Trusted_Connection=True;");
             }
             optionsBuilder.LogTo(System.Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name });
         }

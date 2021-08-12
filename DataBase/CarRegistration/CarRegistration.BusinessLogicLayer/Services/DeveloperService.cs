@@ -35,6 +35,7 @@ namespace CarRegistration.BusinessLogicLayer.Services
 
         public List<Develorer> GetList()
         {
+            _developerRepository.GetLazyDevelopers();
             return _developerRepository.GetList();
         }
 

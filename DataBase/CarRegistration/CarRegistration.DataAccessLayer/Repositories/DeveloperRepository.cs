@@ -1,5 +1,6 @@
 ﻿using CarRegistration.DataAccessLayer.DataModels;
 using CarRegistration.DataAccessLayer.Repositories.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -89,6 +90,25 @@ namespace CarRegistration.DataAccessLayer.Repositories
                         }).ToList();
 
             var dev4 = dev3.Where(d => d.DeveloperName == name);
+
+            return null;
+        }
+
+        public List<Develorer> GetLazyDevelopers()
+        {
+            //var dev = _carDbContext.Develorers.Include(d => d.CarDevelorers).ToList();
+            //var dev1 = dev.Where(d => d.CarDevelorers.Count > 1).ToList();
+            var dev2 = (from developer in _carDbContext.Develorers
+                        join carDeveloper in _carDbContext.CarDevelorers on developer.Id equals carDeveloper.DevelorerId
+                        join car in _carDbContext.Cars on carDeveloper.CarId equals car.Id
+                        join engineType in _carDbContext.EngineTypes on car.EngineTypeId equals engineType.Id
+                        
+                        select new
+                        {
+                            DeveloperName = developer.Name,
+                            EngineType = engineType.Name,
+                            IsAccident = car.Accident
+                        }).ToList();
 
             return null;
         }
