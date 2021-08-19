@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using CarRegistration.DataAccessLayer.DataModels;
+using System.Collections.Generic;
 
 namespace CarRegistration.DataAccessLayer.Repositories.Interfaces
 {
@@ -15,5 +16,7 @@ namespace CarRegistration.DataAccessLayer.Repositories.Interfaces
         void Delete(int id);
 
         List<T> GetLazyDevelopers();
+
+        List<Car> Stored(int owner);
     }
 }

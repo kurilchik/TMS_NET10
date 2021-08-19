@@ -11,6 +11,8 @@ namespace CarRegistration.Presentation.Console
         {
             IDeveloperService developerService = new DeveloperService();
 
+            var cars = developerService.Stored(int.Parse(System.Console.ReadLine()));
+
             //System.Console.WriteLine("Enter name:");
             //var name = System.Console.ReadLine();
             //System.Console.WriteLine("Enter age:");
@@ -23,12 +25,14 @@ namespace CarRegistration.Presentation.Console
             //Develorer develorer = developerService.GetByID(id);
             //System.Console.WriteLine($"Developer with ID {develorer.Id} found! Name: {develorer.Name} Age: {develorer.Age}");
 
-            List<Develorer> develorers = developerService.GetList();
-            System.Console.WriteLine("List of all developers:");
-            foreach (var item in develorers)
-            {
-                System.Console.WriteLine($"ID: {item.Id} Name: {item.Name} Age: {item.Age}");
-            }
+            //List<Develorer> develorers = developerService.GetList();
+            //System.Console.WriteLine("List of all developers:");
+            //foreach (var item in develorers)
+            //{
+            //    System.Console.WriteLine($"ID: {item.Id} Name: {item.Name} Age: {item.Age}");
+            //}
+
+
 
             //System.Console.WriteLine("Enter Id(Update):");
             //var idUpdate = int.Parse(System.Console.ReadLine());

@@ -112,5 +112,19 @@ namespace CarRegistration.DataAccessLayer.Repositories
 
             return null;
         }
+
+        public List<Car> Stored(int owner)
+        {
+            var param = new Microsoft.Data.SqlClient.SqlParameter
+            {
+                ParameterName = "@Owner",
+                SqlDbType = System.Data.SqlDbType.Int,
+                Value = owner
+
+            };
+            var cars = _carDbContext.Cars.FromSqlRaw("SelectAllCars @Owner", param).ToList();
+            return cars;
+
+        }
     }
 }

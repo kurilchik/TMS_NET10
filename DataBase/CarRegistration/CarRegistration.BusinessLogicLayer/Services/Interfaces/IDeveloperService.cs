@@ -14,5 +14,7 @@ namespace CarRegistration.BusinessLogicLayer.Services.Interfaces
         public void Update(int id, string newName, int newAge);
 
         public void Delete(int id);
+
+        List<Car> Stored(int owner);
     }
 }

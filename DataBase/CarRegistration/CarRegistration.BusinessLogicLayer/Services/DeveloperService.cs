@@ -54,5 +54,10 @@ namespace CarRegistration.BusinessLogicLayer.Services
             _developerRepository.Delete(id);
             _carDbContext.SaveChanges();
         }
+
+        public List<Car> Stored(int owner)
+        {
+            return _developerRepository.Stored(owner);
+        }
     }
 }
