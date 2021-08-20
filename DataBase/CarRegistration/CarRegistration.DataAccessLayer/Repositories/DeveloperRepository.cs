@@ -1,4 +1,5 @@
 ﻿using CarRegistration.DataAccessLayer.DataModels;
+using CarRegistration.DataAccessLayer.Models;
 using CarRegistration.DataAccessLayer.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -70,7 +71,7 @@ namespace CarRegistration.DataAccessLayer.Repositories
                 _carDbContext.EngineTypes,
                 c => c.EngineTypeId,
                 et => et.Id,
-                (c, et) => new
+                (c, et) => new DeveloperModel
                 {
                     DeveloperName = c.DeveloperName,
                     EngineType = et.Name,
@@ -82,7 +83,7 @@ namespace CarRegistration.DataAccessLayer.Repositories
                         join car in _carDbContext.Cars on carDeveloper.CarId equals car.Id
                         join engineType in _carDbContext.EngineTypes on car.EngineTypeId equals engineType.Id
                         where developer.Name == name
-                        select new
+                        select new DeveloperModel
                         {
                             DeveloperName = developer.Name,
                             EngineType = engineType.Name,
@@ -103,7 +104,7 @@ namespace CarRegistration.DataAccessLayer.Repositories
                         join car in _carDbContext.Cars on carDeveloper.CarId equals car.Id
                         join engineType in _carDbContext.EngineTypes on car.EngineTypeId equals engineType.Id
                         
-                        select new
+                        select new DeveloperModel
                         {
                             DeveloperName = developer.Name,
                             EngineType = engineType.Name,
