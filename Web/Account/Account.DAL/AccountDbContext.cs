@@ -25,7 +25,7 @@ namespace Account.DAL
             if (!optionsBuilder.IsConfigured)
             {
                 optionsBuilder
-                .UseSqlServer("Server=(LocalDb)\\MSSQLLocalDB;Database=Car;Trusted_Connection=True;");
+                .UseSqlServer("Server=(LocalDb)\\MSSQLLocalDB;Database=Account;Trusted_Connection=True;");
             }
         }
 
@@ -60,15 +60,21 @@ namespace Account.DAL
             {
                 entity.ToTable(nameof(Transaction));
 
-                entity.Property(x => x.Id).IsRequired().ValueGeneratedOnAdd();
+                entity.Property(x => x.Id)
+                    .IsRequired()
+                    .ValueGeneratedOnAdd();                
+
+                entity.Property(x => x.Amount)
+                    .IsRequired();
+
+                entity.Property(x => x.Date)
+                    .IsRequired();
+
+                entity.HasOne(x => x.User)
+                    .WithMany(x => x.Transactions)
+                    .HasForeignKey(x => x.UserId);
 
                 entity.HasKey(x => x.Id);
-
-                entity.Property(x => x.Amount).IsRequired();
-
-                entity.Property(x => x.Date).IsRequired();
-
-                entity.HasOne(x => x.User).WithMany(x => x.Transactions).HasForeignKey(x => x.UserId);
             });
         }
     }
