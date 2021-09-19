@@ -2,12 +2,18 @@
 @{
 }
 <h1>Developers</h1>
+
+<form method="post" action="~/Developer/Add">
+    <p>Name:</p>
+    <p><input type="text" name="@nameof(DeveloperViewModel.Name)" /></p>
+    <p>Age:</p>
+    <p><input type="number" name="@nameof(DeveloperViewModel.Age)" /></p>
+    <p><input type="submit" value="Add"></p>
+</form>
+
+<h2>Developer list:</h2>
+
 @foreach (var developer in Model.Developers)
 {
     <p>@developer.Name - @developer.Age</p>
 }
-<form method="post" action="~/Developer/Add">
-    <input type="text" name="@nameof(DeveloperViewModel.Name)" />
-    <input type="number" name="@nameof(DeveloperViewModel.Age)" />
-    <p><input type="submit"></p>
-</form>

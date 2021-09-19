@@ -1,20 +1,17 @@
-﻿using CarRegistration.BusinessLogicLayer.Services;
+﻿using CarRegistration.BusinessLogicLayer.Services.Interfaces;
 using CarRegistration.WebApplication.Presentation.Models;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CarRegistration.WebApplication.Presentation.Controllers
 {
     public class DeveloperController : Controller
     {
-        private DeveloperService _developerService;
+        private IDeveloperService _developerService;
 
-        public DeveloperController()
+        public DeveloperController(IDeveloperService developerService)
         {
-            _developerService = new DeveloperService();
+            _developerService = developerService;            
         }
 
         public IActionResult Index()

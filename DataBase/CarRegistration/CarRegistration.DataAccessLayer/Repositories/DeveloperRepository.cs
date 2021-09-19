@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace CarRegistration.DataAccessLayer.Repositories
 {
-    public class DeveloperRepository : IDeveloperRepository<Develorer>
+    public class DeveloperRepository : IDeveloperRepository
     {
         private CarDbContext _carDbContext;
 

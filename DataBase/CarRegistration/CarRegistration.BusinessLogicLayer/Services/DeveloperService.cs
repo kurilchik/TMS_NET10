@@ -1,6 +1,5 @@
 ﻿using CarRegistration.BusinessLogicLayer.Services.Interfaces;
 using CarRegistration.DataAccessLayer.DataModels;
-using CarRegistration.DataAccessLayer.Repositories;
 using CarRegistration.DataAccessLayer.Repositories.Interfaces;
 using System.Collections.Generic;
 
@@ -8,13 +7,13 @@ namespace CarRegistration.BusinessLogicLayer.Services
 {
     public class DeveloperService : IDeveloperService
     {
-        private IDeveloperRepository<Develorer> _developerRepository;
+        private IDeveloperRepository _developerRepository;
         private CarDbContext _carDbContext;
 
-        public DeveloperService()
+        public DeveloperService(IDeveloperRepository developerRepository, CarDbContext carDbContext)
         {
-            _carDbContext = new CarDbContext();
-            _developerRepository = new DeveloperRepository(_carDbContext);
+            _carDbContext = carDbContext;
+            _developerRepository = developerRepository;
         }
         public void Add(string name, int age)
         {

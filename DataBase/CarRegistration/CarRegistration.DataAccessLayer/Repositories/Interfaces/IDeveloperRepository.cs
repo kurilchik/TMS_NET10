@@ -3,19 +3,19 @@ using System.Collections.Generic;
 
 namespace CarRegistration.DataAccessLayer.Repositories.Interfaces
 {
-    public interface IDeveloperRepository<T>
+    public interface IDeveloperRepository
     {
-        void Add(T developer);
+        void Add(Develorer developer);
 
-        T GetByID(int id);
+        Develorer GetByID(int id);
 
-        List<T> GetList();
+        List<Develorer> GetList();
 
-        void Update(T developer);
+        void Update(Develorer developer);
 
         void Delete(int id);
 
-        List<T> GetLazyDevelopers();
+        List<Develorer> GetLazyDevelopers();
 
         List<Car> Stored(int owner);
     }

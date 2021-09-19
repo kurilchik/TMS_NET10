@@ -23,16 +23,16 @@ namespace CarRegistration.DataAccessLayer.DataModels
         public virtual DbSet<Log> Logs { get; set; }
         public virtual DbSet<Owner> Owners { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder
-                .UseLazyLoadingProxies()
-                .UseSqlServer("Server=(LocalDb)\\MSSQLLocalDB;Database=Car;Trusted_Connection=True;");
-            }
-            optionsBuilder.LogTo(System.Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name });
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    if (!optionsBuilder.IsConfigured)
+        //    {
+        //        optionsBuilder
+        //        .UseLazyLoadingProxies()
+        //        .UseSqlServer("Server=(LocalDb)\\MSSQLLocalDB;Database=Car;Trusted_Connection=True;");
+        //    }
+        //    optionsBuilder.LogTo(System.Console.WriteLine, new[] { DbLoggerCategory.Database.Command.Name });
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -9,9 +9,9 @@ namespace CarRegistration.Presentation.Console
     {
         static void Main(string[] args)
         {
-            IDeveloperService developerService = new DeveloperService();
+            //IDeveloperService developerService = new DeveloperService();
 
-            var cars = developerService.Stored(int.Parse(System.Console.ReadLine()));
+            //var cars = developerService.Stored(int.Parse(System.Console.ReadLine()));
 
             //System.Console.WriteLine("Enter name:");
             //var name = System.Console.ReadLine();
