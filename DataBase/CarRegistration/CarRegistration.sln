@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarRegistration.DataAccessL
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarRegistration.BusinessLogicLayer", "CarRegistration.BusinessLogicLayer\CarRegistration.BusinessLogicLayer.csproj", "{4C1868CC-8EAA-4FDA-A0A7-46E2E82ABE46}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRegistration.WebApplication.Presentation", "CarRegistration.WebApplication.Presentation\CarRegistration.WebApplication.Presentation.csproj", "{E8B8D21B-C7A1-4604-B456-708B6AD3F06E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarRegistration.WebApplication.Presentation", "CarRegistration.WebApplication.Presentation\CarRegistration.WebApplication.Presentation.csproj", "{E8B8D21B-C7A1-4604-B456-708B6AD3F06E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRegistrationAPI", "CarRegistrationAPI\CarRegistrationAPI.csproj", "{11F8FE7C-9D4D-4836-BB43-835D7EAE9561}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{E8B8D21B-C7A1-4604-B456-708B6AD3F06E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8B8D21B-C7A1-4604-B456-708B6AD3F06E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8B8D21B-C7A1-4604-B456-708B6AD3F06E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11F8FE7C-9D4D-4836-BB43-835D7EAE9561}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11F8FE7C-9D4D-4836-BB43-835D7EAE9561}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11F8FE7C-9D4D-4836-BB43-835D7EAE9561}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11F8FE7C-9D4D-4836-BB43-835D7EAE9561}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -23,7 +23,7 @@ namespace CarRegistration.DataAccessLayer.Repositories
 
         public Develorer GetByID(int id)
         {
-            return _carDbContext.Develorers.SingleOrDefault(x => x.Id == id);
+            return _carDbContext.Develorers.FirstOrDefault(x => x.Id == id);
         }
 
         public List<Develorer> GetList()
@@ -33,12 +33,13 @@ namespace CarRegistration.DataAccessLayer.Repositories
 
         public void Update(Develorer developer)
         {
-            _carDbContext.Develorers.Update(developer);
+            var dev = _carDbContext.Develorers.FirstOrDefault(x => x.Id == developer.Id);
+            dev = developer;
         }
 
         public void Delete(int id)
         {
-            var developer = _carDbContext.Develorers.SingleOrDefault(x => x.Id == id);
+            var developer = _carDbContext.Develorers.FirstOrDefault(x => x.Id == id);
             _carDbContext.Develorers.Remove(developer);
         }
 
