@@ -5,6 +5,7 @@ using CarRegistration.DataAccessLayer.Repositories;
 using CarRegistration.DataAccessLayer.Repositories.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -35,6 +36,8 @@ namespace CarRegistration.WebApplication.Presentation
 
             services.AddTransient<IDeveloperRepository, DeveloperRepository>();
             services.AddTransient<IDeveloperService, DeveloperService>();
+            services.AddTransient<ICarRepository, CarRepository>();
+            services.AddTransient<ICarService, CarService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,6 +56,18 @@ namespace CarRegistration.WebApplication.Presentation
             app.UseRouting();
 
             app.UseAuthorization();
+
+            //app.Use(async (context, next) => 
+            //{
+            //    await next.Invoke();
+            //    await context.Response.WriteAsync("ABC"); 
+            //});
+
+            //app.Use(async (context, next) =>
+            //{
+            //    await next.Invoke();
+            //    await context.Response.WriteAsync("CBA");
+            //});
 
             app.UseEndpoints(endpoints =>
             {
