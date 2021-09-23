@@ -3,12 +3,20 @@
 }
 <h1>Developers</h1>
 
+
+
 <form method="post" action="~/Developer/Add">
-    <p>Name:</p>
-    <p><input type="text" name="@nameof(DeveloperViewModel.Name)" /></p>
-    <p>Age:</p>
-    <p><input type="number" name="@nameof(DeveloperViewModel.Age)" /></p>
-    <p><input type="submit" value="Add"></p>
+    <div class="mb-3">
+        <label for="name"  class="form-label">Name:</label>
+        <input type="text" name="@nameof(DeveloperViewModel.Name)" class="form-control" id="name">
+    </div>
+    <div class="mb-3">
+        <label for="age" class="form-label">Age:</label>
+        <input type="number"  name="@nameof(DeveloperViewModel.Age)" class="form-control" id="age">
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-3">Add</button>
+    </div>
 </form>
 
 <h2>Developer list:</h2>
