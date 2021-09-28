@@ -33,6 +33,10 @@ namespace CarRegistration.WebApplication.Presentation.Controllers
         [HttpPost]
         public IActionResult Add([FromForm]AddDeveloperDTO addDeveloperDTO)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("Index");
+            }
             _developerService.Add(addDeveloperDTO.Name, addDeveloperDTO.Age);
 
             return RedirectToAction("Index");
