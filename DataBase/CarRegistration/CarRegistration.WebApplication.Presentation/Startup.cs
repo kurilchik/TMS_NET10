@@ -3,6 +3,7 @@ using CarRegistration.BusinessLogicLayer.Services.Interfaces;
 using CarRegistration.DataAccessLayer.DataModels;
 using CarRegistration.DataAccessLayer.Repositories;
 using CarRegistration.DataAccessLayer.Repositories.Interfaces;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -34,6 +35,9 @@ namespace CarRegistration.WebApplication.Presentation
             services.AddDbContext<CarDbContext>(
                 options => options.UseSqlServer("Server=(LocalDb)\\MSSQLLocalDB;Database=Car;Trusted_Connection=True;"));
 
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie();
+
             services.AddTransient<IDeveloperRepository, DeveloperRepository>();
             services.AddTransient<IDeveloperService, DeveloperService>();
             services.AddTransient<ICarRepository, CarRepository>();
@@ -54,6 +58,8 @@ namespace CarRegistration.WebApplication.Presentation
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
